@@ -1,29 +1,54 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <game></game>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import Game from './components/Game.vue';
 
 @Component({
-  components: {
-    HelloWorld,
-  },
+  components: {Game},
 })
 export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+			body {
+				background-color: black;
+				color: #dedede;
+				text-align: center;
+				font-family: sans-serif;
+			}
+      .devtools {
+        display: none;
+      }
+      .mb-2{
+        margin-bottom: 20px;
+      }
+      h1, h2, h3, h4 {
+        margin: 0;
+      }
+      h2 {
+        font-size: 2em;
+      }
+      h3 {
+        
+      }
+      h4 {
+        font-weight: 100;
+      }
+      .teal {
+        color: teal;
+      }
+      .purple {
+        color: purple;
+      }
+      .red {
+        color: red;
+      }
+      .teal {
+        color: teal;
+      }
 </style>

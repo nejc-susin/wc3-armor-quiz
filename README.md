@@ -1,24 +1,10 @@
-# wc3-armor
+# WC III Armor Practice
 
-## Project setup
-```
-npm install
-```
+Practice Armor types for WC III units.
 
-### Compiles and hot-reloads for development
+### 
 ```
-npm run serve
+npm install     // Project setup
+npm run serve   // Compiles and hot-reloads for development
+npm run build   // Compiles and minifies for production
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

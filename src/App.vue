@@ -39,8 +39,8 @@ export default class App extends Vue {}
       h4 {
         font-weight: 100;
       }
-      .teal {
-        color: teal;
+      .blue {
+        color: blue;
       }
       .purple {
         color: purple;

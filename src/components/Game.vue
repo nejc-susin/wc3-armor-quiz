@@ -14,12 +14,12 @@
 
     <div class="answers">
         <h3 class="mb-2">What is the Armor Type for this unit?</h3>
-        <div class="armorcard" @click="guess('Unarmored')"><img src="/Infocard-neutral-armor-unarmored.png"><div>unarmored</div></div>
-        <div class="armorcard" @click="guess('Light')"><img src="/Infocard-neutral-armor-small.png"><div>light</div></div>
-        <div class="armorcard" @click="guess('Medium')"><img src="/Infocard-neutral-armor-medium.png"><div>medium</div></div>
-        <div class="armorcard" @click="guess('Heavy')"><img src="/Infocard-neutral-armor-large.png"><div>heavy</div></div>
-        <div class="armorcard" @click="guess('Hero')"><img src="/Infocard-armor-hero.png"><div>hero</div></div>
-        <div class="armorcard" @click="guess('Fortified')"><img src="/Infocard-neutral-armor-fortified.png"><div>fortified</div></div>
+        <div class="armorcard" @click="guess('Unarmored')"><img src="../assets/img/Infocard-neutral-armor-unarmored.png"><div>unarmored</div></div>
+        <div class="armorcard" @click="guess('Light')"><img src="../assets/img/Infocard-neutral-armor-small.png"><div>light</div></div>
+        <div class="armorcard" @click="guess('Medium')"><img src="../assets/img/Infocard-neutral-armor-medium.png"><div>medium</div></div>
+        <div class="armorcard" @click="guess('Heavy')"><img src="../assets/img/Infocard-neutral-armor-large.png"><div>heavy</div></div>
+        <div class="armorcard" @click="guess('Hero')"><img src="../assets/img/Infocard-armor-hero.png"><div>hero</div></div>
+        <div class="armorcard" @click="guess('Fortified')"><img src="../assets/img/Infocard-neutral-armor-fortified.png"><div>fortified</div></div>
     </div>
 
     <div class="stats">
@@ -61,7 +61,7 @@ export default {
         }
     },
     mounted() {
-        this.axios.get('/units.csv')
+        this.axios.get('data/units.csv')
         .then((response) => {
             this.units = response.data.split('\n').slice(1).map((unit, idx) => new Unit(unit, idx+1)).sort(() => Math.random() - 0.5)
             this.next();
@@ -72,7 +72,7 @@ export default {
             this.current = this.units.shift();
         },
         guess(type) {
-            this.history.push({unit: this.current, guess: type})
+            this.history.unshift({unit: this.current, guess: type})
             this.next()
         }
     },

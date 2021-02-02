@@ -1,6 +1,6 @@
-# WC III Armor Practice
+# WC III Armor/Attack Practice
 
-Practice Armor types for WC III units.
+Practice Armor and Attack types for WC III units.
 
 ### 
 ```

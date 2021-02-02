@@ -1,16 +1,12 @@
 <template>
   <div id="app">
-    <game></game>
+    <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Game from './components/Game.vue';
+import { Vue } from 'vue-property-decorator';
 
-@Component({
-  components: {Game},
-})
 export default class App extends Vue {}
 </script>
 

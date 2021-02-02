@@ -6,6 +6,8 @@
         </div>
     </div>
 
+    <router-link :to="{name: 'Armor'}">Switch to Armor Practice</router-link>
+
     <div class="question">
         <img :src="current.model" class="model-img">
         <h2 class="unit">{{current.name}}</h2>
@@ -13,13 +15,14 @@
     </div>
 
     <div class="answers">
-        <h3 class="mb-2">What is the Armor Type for this unit?</h3>
-        <div class="armorcard" @click="guess('Unarmored')"><img src="../assets/img/Infocard-neutral-armor-unarmored.png"><div>unarmored</div></div>
-        <div class="armorcard" @click="guess('Light')"><img src="../assets/img/Infocard-neutral-armor-small.png"><div>light</div></div>
-        <div class="armorcard" @click="guess('Medium')"><img src="../assets/img/Infocard-neutral-armor-medium.png"><div>medium</div></div>
-        <div class="armorcard" @click="guess('Heavy')"><img src="../assets/img/Infocard-neutral-armor-large.png"><div>heavy</div></div>
-        <div class="armorcard" @click="guess('Hero')"><img src="../assets/img/Infocard-armor-hero.png"><div>hero</div></div>
-        <div class="armorcard" @click="guess('Fortified')"><img src="../assets/img/Infocard-neutral-armor-fortified.png"><div>fortified</div></div>
+        <h3 class="mb-2">What is the Attack Type for this unit?</h3>
+        <div class="armorcard" @click="guess('Normal')"><img src="../assets/img/Infocard-neutral-attack-normal.png"><div>normal</div></div>
+        <div class="armorcard" @click="guess('Pierce')"><img src="../assets/img/Infocard-neutral-attack-piercing.png"><div>piercing</div></div>
+        <div class="armorcard" @click="guess('Magic')"><img src="../assets/img/Infocard-neutral-attack-magic.png"><div>magic</div></div>
+        <div class="armorcard" @click="guess('Siege')"><img src="../assets/img/Infocard-neutral-attack-siege.png"><div>siege</div></div>
+        <div class="armorcard" @click="guess('Hero')"><img src="../assets/img/Infocard-neutral-attack-hero.png"><div>hero</div></div>
+        <div class="armorcard" @click="guess('Chaos')"><img src="../assets/img/Infocard-neutral-attack-chaos.png"><div>chaos</div></div>
+        <div class="armorcard" @click="guess('Spell')"><img src="../assets/img/Infocard-neutral-attack-firebolt.png"><div>firebolt</div></div>
     </div>
 
     <div class="stats">
@@ -31,15 +34,15 @@
             <thead>
                 <th>Unit</th>
                 <th>Race</th>
-                <th>Armor</th>
+                <th>Attack</th>
                 <th>Your Guess</th>
             </thead>
             <tbody>
                 <tr v-for="entry in history" :key="entry.unit.id">
                     <td>{{entry.unit.name}}</td>
                     <td>{{entry.unit.race}}</td>
-                    <td>{{entry.unit.armor}}</td>
-                    <td class="incorrect" :class="{'correct': entry.guess === entry.unit.armor}">{{entry.guess}}</td>
+                    <td>{{entry.unit.attack}}</td>
+                    <td class="incorrect" :class="{'correct': entry.guess === entry.unit.attack}">{{entry.guess}}</td>
                 </tr>
             </tbody>
         </table>
@@ -51,7 +54,7 @@
 import Unit from '../models/Unit'
 
 export default {
-    name: "Game",
+    name: "Attack",
     data() {
         return {
             current: undefined,
@@ -78,7 +81,7 @@ export default {
     },
     computed: {
         correctCount() {
-            return this.history.filter(e => e.unit.armor === e.guess).length
+            return this.history.filter(e => e.unit.attack === e.guess).length
         },
         correctPct() {
             return this.history.length > 0 ? Math.round(100*this.correctCount/this.history.length) : 0

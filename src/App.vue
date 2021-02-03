@@ -20,8 +20,11 @@ export default class App extends Vue {}
       .devtools {
         display: none;
       }
-      .mb-2{
+      .mb-2 {
         margin-bottom: 20px;
+      }
+      .mt-4 {
+        margin-top: 40px;
       }
       h1, h2, h3, h4 {
         margin: 0;

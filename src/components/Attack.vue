@@ -17,13 +17,13 @@
 
         <div class="answers">
             <h3 class="mb-2">What is the Attack Type for this unit?</h3>
-            <div class="armorcard" @click="guess('Normal')"><img src="../assets/img/Infocard-neutral-attack-normal.png"><div>normal</div></div>
-            <div class="armorcard" @click="guess('Pierce')"><img src="../assets/img/Infocard-neutral-attack-piercing.png"><div>piercing</div></div>
-            <div class="armorcard" @click="guess('Magic')"><img src="../assets/img/Infocard-neutral-attack-magic.png"><div>magic</div></div>
-            <div class="armorcard" @click="guess('Siege')"><img src="../assets/img/Infocard-neutral-attack-siege.png"><div>siege</div></div>
-            <div class="armorcard" @click="guess('Hero')"><img src="../assets/img/Infocard-neutral-attack-hero.png"><div>hero</div></div>
-            <div class="armorcard" @click="guess('Chaos')"><img src="../assets/img/Infocard-neutral-attack-chaos.png"><div>chaos</div></div>
-            <div class="armorcard" @click="guess('Spell')"><img src="../assets/img/Infocard-neutral-attack-firebolt.png"><div>firebolt</div></div>
+            <div class="armorcard" @click="guess('Normal')"><img src="img/Infocard-neutral-attack-normal.png"><div>normal</div></div>
+            <div class="armorcard" @click="guess('Pierce')"><img src="img/Infocard-neutral-attack-piercing.png"><div>piercing</div></div>
+            <div class="armorcard" @click="guess('Magic')"><img src="img/Infocard-neutral-attack-magic.png"><div>magic</div></div>
+            <div class="armorcard" @click="guess('Siege')"><img src="img/Infocard-neutral-attack-siege.png"><div>siege</div></div>
+            <div class="armorcard" @click="guess('Hero')"><img src="img/Infocard-neutral-attack-hero.png"><div>hero</div></div>
+            <div class="armorcard" @click="guess('Chaos')"><img src="img/Infocard-neutral-attack-chaos.png"><div>chaos</div></div>
+            <div class="armorcard" @click="guess('Spell')"><img src="img/Infocard-neutral-attack-firebolt.png"><div>firebolt</div></div>
         </div>
     </div>
     <div v-else><h2 class="mt-4">That's all of them!</h2></div>

@@ -17,12 +17,12 @@
 
         <div class="answers">
             <h3 class="mb-2">What is the Armor Type for this unit?</h3>
-            <div class="armorcard" @click="guess('Unarmored')"><img src="../assets/img/Infocard-neutral-armor-unarmored.png"><div>unarmored</div></div>
-            <div class="armorcard" @click="guess('Light')"><img src="../assets/img/Infocard-neutral-armor-small.png"><div>light</div></div>
-            <div class="armorcard" @click="guess('Medium')"><img src="../assets/img/Infocard-neutral-armor-medium.png"><div>medium</div></div>
-            <div class="armorcard" @click="guess('Heavy')"><img src="../assets/img/Infocard-neutral-armor-large.png"><div>heavy</div></div>
-            <div class="armorcard" @click="guess('Hero')"><img src="../assets/img/Infocard-armor-hero.png"><div>hero</div></div>
-            <div class="armorcard" @click="guess('Fortified')"><img src="../assets/img/Infocard-neutral-armor-fortified.png"><div>fortified</div></div>
+            <div class="armorcard" @click="guess('Unarmored')"><img src="img/Infocard-neutral-armor-unarmored.png"><div>unarmored</div></div>
+            <div class="armorcard" @click="guess('Light')"><img src="img/Infocard-neutral-armor-small.png"><div>light</div></div>
+            <div class="armorcard" @click="guess('Medium')"><img src="img/Infocard-neutral-armor-medium.png"><div>medium</div></div>
+            <div class="armorcard" @click="guess('Heavy')"><img src="img/Infocard-neutral-armor-large.png"><div>heavy</div></div>
+            <div class="armorcard" @click="guess('Hero')"><img src="img/Infocard-armor-hero.png"><div>hero</div></div>
+            <div class="armorcard" @click="guess('Fortified')"><img src="img/Infocard-neutral-armor-fortified.png"><div>fortified</div></div>
         </div>
     </div>
     <div v-else><h2 class="mt-4">That's all of them!</h2></div>

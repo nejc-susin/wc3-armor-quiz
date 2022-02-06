@@ -35,7 +35,7 @@
                     <td>{{entry.unit.name}}</td>
                     <td>{{entry.unit.race}}</td>
                     <td>{{entry.unit.attack}}</td>
-                    <td class="incorrect" :class="{'correct': entry.guess === entry.unit.attack}">{{entry.guess}}</td>
+                    <td class="incorrect" :class="{'correct': entry.unit.attack.includes(entry.guess)}">{{entry.guess}}</td>
                 </tr>
             </tbody>
         </table>
@@ -87,7 +87,7 @@ export default {
       },
       computed: {
           correctCount() {
-              return this.history.filter(e => e.unit.attack === e.guess).length
+              return this.history.filter(e => e.unit.attack.includes(e.guess)).length
           },
           correctPct() {
               return this.history.length > 0 ? Math.round(100*this.correctCount/this.history.length) : 0

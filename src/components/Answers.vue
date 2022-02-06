@@ -27,11 +27,18 @@ name: "Answers",
 <style scoped>
 
 .answercard {
+  min-width: 80px;
   display: inline-block;
-  margin: 0 20px;
+  margin: 5px 0;
   cursor: pointer;
 }
 .answercard span {
-  display: inline-block;
+  display: inline;
+  position: absolute;
+}
+@media only screen and (max-width: 620px) {
+  .answercard {
+    margin: 5px 0;
+  }
 }
 </style>

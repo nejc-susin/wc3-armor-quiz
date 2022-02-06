@@ -21,7 +21,7 @@
       <a href="#" @click="$router.go()">Start over</a>
     </div>
 
-    <div class="stats">
+    <div class="stats container-small">
         You answered correctly for <b>{{correctCount}}</b> of <b>{{history.length}}</b> units - <b>{{correctPct}}%</b>!
     </div>
 
@@ -107,14 +107,6 @@ export default {
 .question {
     margin-bottom: 60px;
 }
-.container,
-.container-small {
-    width: 800px;
-    margin: 60px auto;
-}
-.container-small {
-    width: 600px;
-}
 table {
     width: 100%;
     text-align: left;
@@ -125,9 +117,6 @@ table td,
 table th {
     border: solid white 1px;
 
-}
-.stats {
-    margin: 60px 0;
 }
 .history .correct {
     color: green !important;

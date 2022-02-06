@@ -21,7 +21,7 @@
       <router-link :to="{name: 'Armor'}" @click="$router.go()">Start over</router-link>
     </div>
 
-    <div class="stats">
+    <div class="stats container-small">
         You answered correctly for <b>{{correctCount}}</b> of <b>{{history.length}}</b> units - <b>{{correctPct}}%</b>!
     </div>
 
@@ -108,22 +108,6 @@ export default {
 .question {
     margin-bottom: 60px;
 }
-.armorcard {
-    display: inline-block;
-    margin: 0 20px;
-    cursor: pointer;
-}
-.armorcard span {
-    display: inline-block;
-}
-.container,
-.container-small {
-    width: 800px;
-    margin: 60px auto;
-}
-.container-small {
-    width: 600px;
-}
 table {
     width: 100%;
     text-align: left;
@@ -134,9 +118,6 @@ table td,
 table th {
     border: solid white 1px;
 
-}
-.stats {
-    margin: 60px 0;
 }
 .history .correct {
     color: green !important;

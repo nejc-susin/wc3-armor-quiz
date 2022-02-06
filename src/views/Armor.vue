@@ -16,7 +16,10 @@
         </div>
         <answers title="What is the Armor Type for this unit?" :answers="answers" @guess="guess"></answers>
     </div>
-    <div v-else><h2 class="mt-4">That's all of them!</h2></div>
+    <div v-else>
+      <h2 class="mt-4">That's all of them!</h2>
+      <a href="#" @click="$router.go()">Start over</a>
+    </div>
 
     <div class="stats">
         You answered correctly for <b>{{correctCount}}</b> of <b>{{history.length}}</b> units - <b>{{correctPct}}%</b>!

@@ -65,8 +65,11 @@ export default {
       mounted() {
           this.axios.get('data/units.csv')
           .then((response) => {
-              this.units = response.data.split('\n').slice(1).map((unit, idx) => new Unit(unit, idx+1)).sort(() => Math.random() - 0.5)
-              this.next();
+            const csvData = response.data.split('\n').slice(1);
+            const allUnits = csvData.map((unit, idx) => new Unit(unit, idx+1));
+            const filteredUnits = allUnits.filter(u => !['None', 'N/A'].includes(u.attack));
+            this.units = filteredUnits.sort(() => Math.random() - 0.5);
+            this.next();
           })
       },
       methods: {

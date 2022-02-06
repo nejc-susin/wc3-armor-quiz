@@ -14,16 +14,7 @@
             <h2 class="unit">{{current.name}}</h2>
             <h4 class="race" :class="raceColor[current.race]">{{current.race}}</h4>
         </div>
-
-        <div class="answers">
-            <h3 class="mb-2">What is the Armor Type for this unit?</h3>
-            <div class="armorcard" @click="guess('Unarmored')"><img src="img/Infocard-neutral-armor-unarmored.png"><div>unarmored</div></div>
-            <div class="armorcard" @click="guess('Light')"><img src="img/Infocard-neutral-armor-small.png"><div>light</div></div>
-            <div class="armorcard" @click="guess('Medium')"><img src="img/Infocard-neutral-armor-medium.png"><div>medium</div></div>
-            <div class="armorcard" @click="guess('Heavy')"><img src="img/Infocard-neutral-armor-large.png"><div>heavy</div></div>
-            <div class="armorcard" @click="guess('Hero')"><img src="img/Infocard-armor-hero.png"><div>hero</div></div>
-            <div class="armorcard" @click="guess('Fortified')"><img src="img/Infocard-neutral-armor-fortified.png"><div>fortified</div></div>
-        </div>
+        <answers title="What is the Armor Type for this unit?" :answers="answers" @guess="guess"></answers>
     </div>
     <div v-else><h2 class="mt-4">That's all of them!</h2></div>
 
@@ -54,16 +45,20 @@
 
 <script>
 import Unit from '../models/Unit'
+import definitions from "@/utils/definitions";
+import Answers from "@/components/Answers";
 
 export default {
     name: "Armor",
-    data() {
+  components: {Answers},
+  data() {
         return {
             gameover: false,
             current: undefined,
             units: [],
             history: [],
-            raceColor: {'Human': 'blue', 'Orc': 'red', 'Night Elf': 'teal', 'Undead': 'purple'}
+            raceColor: definitions.RACE_COLORS,
+            answers: definitions.ARMOR_TYPES,
         }
     },
     mounted() {
@@ -105,14 +100,6 @@ export default {
 }
 .question {
     margin-bottom: 60px;
-}
-.armorcard {
-    display: inline-block;
-    margin: 0 20px;
-    cursor: pointer;
-}
-.armorcard span {
-    display: inline-block;
 }
 .container,
 .container-small {

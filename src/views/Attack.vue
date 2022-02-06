@@ -14,17 +14,7 @@
             <h2 class="unit">{{current.name}}</h2>
             <h4 class="race" :class="raceColor[current.race]">{{current.race}}</h4>
         </div>
-
-        <div class="answers">
-            <h3 class="mb-2">What is the Attack Type for this unit?</h3>
-            <div class="armorcard" @click="guess('Normal')"><img src="img/Infocard-neutral-attack-normal.png"><div>normal</div></div>
-            <div class="armorcard" @click="guess('Pierce')"><img src="img/Infocard-neutral-attack-piercing.png"><div>piercing</div></div>
-            <div class="armorcard" @click="guess('Magic')"><img src="img/Infocard-neutral-attack-magic.png"><div>magic</div></div>
-            <div class="armorcard" @click="guess('Siege')"><img src="img/Infocard-neutral-attack-siege.png"><div>siege</div></div>
-            <div class="armorcard" @click="guess('Hero')"><img src="img/Infocard-neutral-attack-hero.png"><div>hero</div></div>
-            <div class="armorcard" @click="guess('Chaos')"><img src="img/Infocard-neutral-attack-chaos.png"><div>chaos</div></div>
-            <div class="armorcard" @click="guess('Spell')"><img src="img/Infocard-neutral-attack-firebolt.png"><div>firebolt</div></div>
-        </div>
+        <answers title="What is the Attack Type for this unit?" :answers="answers" @guess="guess"></answers>
     </div>
     <div v-else><h2 class="mt-4">That's all of them!</h2></div>
 
@@ -55,46 +45,51 @@
 
 <script>
 import Unit from '../models/Unit'
+import Answers from "@/components/Answers";
+import definitions from '../utils/definitions';
 
 export default {
     name: "Attack",
+    components: {Answers},
+
     data() {
-        return {
-            gameover: false,
-            current: undefined,
-            units: [],
-            history: [],
-            raceColor: {'Human': 'blue', 'Orc': 'red', 'Night Elf': 'teal', 'Undead': 'purple'}
-        }
-    },
-    mounted() {
-        this.axios.get('data/units.csv')
-        .then((response) => {
-            this.units = response.data.split('\n').slice(1).map((unit, idx) => new Unit(unit, idx+1)).sort(() => Math.random() - 0.5)
-            this.next();
-        })
-    },
-    methods: {
-        next() {
-            if (this.units.length) {
-                this.current = this.units.shift()
-            } else {
-                this.gameover = true
-            }
-        },
-        guess(type) {
-            this.history.unshift({unit: this.current, guess: type})
-            this.next()
-        }
-    },
-    computed: {
-        correctCount() {
-            return this.history.filter(e => e.unit.attack === e.guess).length
-        },
-        correctPct() {
-            return this.history.length > 0 ? Math.round(100*this.correctCount/this.history.length) : 0
-        }
-    }
+          return {
+              gameover: false,
+              current: undefined,
+              units: [],
+              history: [],
+              raceColor: definitions.RACE_COLORS,
+              answers: definitions.ATTACK_TYPES,
+          }
+      },
+      mounted() {
+          this.axios.get('data/units.csv')
+          .then((response) => {
+              this.units = response.data.split('\n').slice(1).map((unit, idx) => new Unit(unit, idx+1)).sort(() => Math.random() - 0.5)
+              this.next();
+          })
+      },
+      methods: {
+          next() {
+              if (this.units.length) {
+                  this.current = this.units.shift()
+              } else {
+                  this.gameover = true
+              }
+          },
+          guess(type) {
+              this.history.unshift({unit: this.current, guess: type})
+              this.next()
+          }
+      },
+      computed: {
+          correctCount() {
+              return this.history.filter(e => e.unit.attack === e.guess).length
+          },
+          correctPct() {
+              return this.history.length > 0 ? Math.round(100*this.correctCount/this.history.length) : 0
+          }
+      }
 }
 </script>
 

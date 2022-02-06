@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Armor from '../components/Armor.vue'
-import Attack from '../components/Attack.vue'
+import Armor from '../views/Armor.vue'
+import Attack from '../views/Attack.vue'
 
 Vue.use(VueRouter)
 

@@ -1,71 +1,90 @@
 export default {
-ARMOR_TYPES: [
-    {
-        "name": "Unarmored",
-        "icon": "Infocard-neutral-armor-unarmored.png",
-        "description": "spellcasters, certain air units",
+    RACE_COLORS: {
+        'Human': 'blue',
+        'Orc': 'red',
+        'Night Elf': 'teal',
+        'Undead': 'purple'
     },
-    {
-        "name": "Light",
-        "icon": "Infocard-neutral-armor-small.png",
-        "description": "most air units, Scout Towers",
-    },
-    {
-        "name": "Medium",
-        "icon": "Infocard-neutral-armor-medium.png",
-        "description": "ground ranged units",
-    },
-    {
-        "name": "Heavy",
-        "icon": "Infocard-neutral-armor-large.png",
-        "description": "melee units, long-ranged siege weaponry, summoned units",
-    },
-    {
-        "name": "Hero",
-        "icon": "Infocard-armor-hero.png",
-        "description": "Heroe",
-    },
-    {
-        "name": "Fortified",
-        "icon": "Infocard-neutral-armor-fortified.png",
-        "description": "most buildings",
-    }
-],
-ATTACK_TYPES: [
-    {
-        "name": "Normal",
-        "icon": "Infocard-neutral-attack-normal.png",
-        "description": "melee and short ranged units",
-    },
-    {
-        "name": "Piercing",
-        "icon": "Infocard-neutral-attack-piercing.png",
-        "description": "ranged attackers",
-    },
-    {
-        "name": "Magic",
-        "icon": "Infocard-neutral-attack-magic.png",
-        "description": "spellcasters, certain heavy air units",
-    },
-    {
-        "name": "Siege",
-        "icon": "Infocard-neutral-attack-siege.png",
-        "description": "siege units",
-    },
-    {
-        "name": "Hero",
-        "icon": "Infocard-neutral-attack-hero.png",
-        "description": "heroes",
-    },
-    {
-        "name": "Chaos",
-        "icon": "Infocard-neutral-attack-chaos.png",
-        "description": "powerful summoned units and creeps",
-    },
-    {
-        "name": "Spell",
-        "icon": "Infocard-neutral-attack-firebolt.png",
-        "description": "abilities and poison",
-    },
-]
+    ARMOR_TYPES: [
+        {
+            "label": "Unarmored",
+            "value": "Unarmored",
+            "description": "spellcasters, certain air units",
+            "icon": "Infocard-neutral-armor-unarmored.png",
+        },
+        {
+            "label": "Light",
+            "value": "Light",
+            "description": "most air units, Scout Towers",
+            "icon": "Infocard-neutral-armor-small.png",
+        },
+        {
+            "label": "Medium",
+            "value": "Medium",
+            "description": "ground ranged units",
+            "icon": "Infocard-neutral-armor-medium.png",
+        },
+        {
+            "label": "Heavy",
+            "value": "Heavy",
+            "description": "melee units, long-ranged siege weaponry, summoned units",
+            "icon": "Infocard-neutral-armor-large.png",
+        },
+        {
+            "label": "Hero",
+            "value": "Hero",
+            "description": "Heroe",
+            "icon": "Infocard-armor-hero.png",
+        },
+        {
+            "label": "Fortified",
+            "value": "Fort",
+            "description": "most buildings",
+            "icon": "Infocard-neutral-armor-fortified.png",
+        }
+    ],
+    ATTACK_TYPES: [
+        {
+            "label": "Normal",
+            "value": "Normal",
+            "description": "melee and short ranged units",
+            "icon": "Infocard-neutral-attack-normal.png",
+        },
+        {
+            "label": "Piercing",
+            "value": "Pierce",
+            "description": "ranged attackers",
+            "icon": "Infocard-neutral-attack-piercing.png",
+        },
+        {
+            "label": "Magic",
+            "value": "Magic",
+            "description": "spellcasters, certain heavy air units",
+            "icon": "Infocard-neutral-attack-magic.png",
+        },
+        {
+            "label": "Siege",
+            "value": "Siege",
+            "description": "siege units",
+            "icon": "Infocard-neutral-attack-siege.png",
+        },
+        {
+            "label": "Hero",
+            "value": "Hero",
+            "description": "heroes",
+            "icon": "Infocard-neutral-attack-hero.png",
+        },
+        {
+            "label": "Chaos",
+            "value": "Chaos",
+            "description": "powerful summoned units and creeps",
+            "icon": "Infocard-neutral-attack-chaos.png",
+        },
+        {
+            "label": "Spell",
+            "value": "Spell",
+            "description": "abilities and poison",
+            "icon": "Infocard-neutral-attack-firebolt.png",
+        },
+    ]
 }

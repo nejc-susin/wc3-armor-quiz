@@ -5,20 +5,16 @@
             {{unit.name}}
         </div>
     </div>
-
+    <br />
     <router-link :to="{name: 'Armor'}">Switch to Armor Practice</router-link>
 
-    <div v-if="!gameover">
-        <div class="question">
-            <img :src="current.model" class="model-img">
-            <h2 class="unit">{{current.name}}</h2>
-            <h4 class="race" :class="raceColor[current.race]">{{current.race}}</h4>
-        </div>
-        <answers title="What is the Attack Type for this unit?" :answers="answers" @guess="guess"></answers>
+    <div v-if="!gameover && current">
+      <unit-component :unit="current"></unit-component>
+      <answers title="What is the Attack Type for this unit?" :answers="answers" @guess="guess"></answers>
     </div>
     <div v-else>
       <h2 class="mt-4">That's all of them!</h2>
-      <router-link :to="{name: 'Armor'}" @click="$router.go()">Start over</router-link>
+      <a href="#" @click="$router.go()">Start over</a>
     </div>
 
     <div class="stats container-small">
@@ -50,10 +46,11 @@
 import Unit from '../models/Unit'
 import Answers from "@/components/Answers";
 import definitions from '../utils/definitions';
+import UnitComponent from "@/components/Unit";
 
 export default {
     name: "Attack",
-    components: {Answers},
+    components: {Answers, UnitComponent},
 
     data() {
           return {
@@ -61,7 +58,6 @@ export default {
               current: undefined,
               units: [],
               history: [],
-              raceColor: definitions.RACE_COLORS,
               answers: definitions.ATTACK_TYPES,
           }
       },

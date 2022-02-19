@@ -5,16 +5,12 @@
             {{unit.name}}
         </div>
     </div>
-
+    <br />
     <router-link :to="{name: 'Attack'}">Switch to Attack Practice</router-link>
 
-    <div v-if="!gameover">
-        <div class="question">
-            <img :src="current.model" class="model-img">
-            <h2 class="unit">{{current.name}}</h2>
-            <h4 class="race" :class="raceColor[current.race]">{{current.race}}</h4>
-        </div>
-        <answers title="What is the Armor Type for this unit?" :answers="answers" @guess="guess"></answers>
+    <div v-if="!gameover && current">
+      <unit-component :unit="current"></unit-component>
+      <answers title="What is the Armor Type for this unit?" :answers="answers" @guess="guess"></answers>
     </div>
     <div v-else>
       <h2 class="mt-4">That's all of them!</h2>
@@ -38,7 +34,7 @@
                     <td>{{entry.unit.name}}</td>
                     <td>{{entry.unit.race}}</td>
                     <td>{{entry.unit.armor}}</td>
-                    <td class="incorrect" :class="{'correct': entry.guess === entry.unit.armor}">{{entry.guess}}</td>
+                    <td class="incorrect" :class="{'correct': entry.unit.armor.includes(entry.guess)}">{{entry.guess}}</td>
                 </tr>
             </tbody>
         </table>
@@ -50,17 +46,18 @@
 import Unit from '../models/Unit'
 import definitions from "@/utils/definitions";
 import Answers from "@/components/Answers";
+import UnitComponent from "@/components/Unit";
 
 export default {
-    name: "Armor",
-  components: {Answers},
+  name: "Armor",
+  components: {Answers, UnitComponent},
+
   data() {
         return {
             gameover: false,
             current: undefined,
             units: [],
             history: [],
-            raceColor: definitions.RACE_COLORS,
             answers: definitions.ARMOR_TYPES,
         }
     },

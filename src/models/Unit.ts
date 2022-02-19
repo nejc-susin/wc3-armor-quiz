@@ -6,6 +6,7 @@ export default class Unit {
     public model: string;
     public armor: string;
     public attack: string;
+    public imgName: string;
 
     constructor(line: string, id: number) {
         const raw = line.split(';')
@@ -16,5 +17,8 @@ export default class Unit {
         this.model = raw[25]
         this.armor = raw[6]
         this.attack = raw[13]
+
+        const idx = raw[25].lastIndexOf('/') + 1
+        this.imgName = raw[25].substr(idx)
     }
 }

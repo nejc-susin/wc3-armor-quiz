@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: "./"
+    publicPath: "/wc3-armor-quiz/"
   };
